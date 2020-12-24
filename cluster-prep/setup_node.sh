@@ -1,5 +1,6 @@
 #!/bin/sh
-
+# Use this script to setup any node in your Kuberntes cluster 
+# Either master or worker
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 ### setup terminal

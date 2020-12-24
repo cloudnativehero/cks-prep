@@ -1,3 +1,6 @@
+#!/bin/sh
+# Use this script to initialize master
+
 KUBE_VERSION=1.19.3
 HOST_IP=`/sbin/ifconfig enp0s8 | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'  | cut -d' ' -f2`
 ### init k8s
