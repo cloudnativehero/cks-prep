@@ -1,0 +1,26 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: orange-app
+  labels:
+    app: orange
+spec:
+  containers:
+    - name: orange-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=orange"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: orange-service
+spec:
+  selector:
+    app: orange
+  ports:
+    - port: 5678 # Default port for image
+
+

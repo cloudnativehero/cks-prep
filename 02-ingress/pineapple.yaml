@@ -1,0 +1,26 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pineapple-app
+  labels:
+    app: pineapple
+spec:
+  containers:
+    - name: pineapple-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=pineapple"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: pineapple-service
+spec:
+  selector:
+    app: pineapple
+  ports:
+    - port: 5678 # Default port for image
+
+

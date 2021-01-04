@@ -1,0 +1,25 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mango-app
+  labels:
+    app: mango
+spec:
+  containers:
+    - name: mango-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=mango"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: mango-service
+spec:
+  selector:
+    app: mango
+  ports:
+    - port: 5678 # Default port for image
+

@@ -1,0 +1,6 @@
+apiVersion: node.k8s.io/v1beta1 # RuntimeClass is defined in the node.k8s.io API group
+kind: RuntimeClass
+metadata:
+  name: gvisor # The name the RuntimeClass will be referenced by
+  # RuntimeClass is a non-namespaced resource
+handler: runsc #The name of the corresponding CRI configuration

@@ -1,0 +1,41 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: deploy-deleter
+rules:
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  creationTimestamp: null
+  name: deploy-deleter
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: deploy-deleter
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: jane
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  name: deploy-deleter
+  namespace: red
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: deploy-deleter
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: jim
