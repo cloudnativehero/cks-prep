@@ -5,7 +5,7 @@
 
 ### setup terminal
 KUBE_VERSION=1.19.3
-apt-get install -y bash-completion binutils
+apt-get install -y bash-completion binutils apparmor-utils
 echo 'colorscheme ron' >> ~/.vimrc
 echo 'set tabstop=2' >> ~/.vimrc
 echo 'set shiftwidth=2' >> ~/.vimrc
