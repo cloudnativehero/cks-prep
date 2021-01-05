@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ro-pod
+  name: ro-pod
+spec:
+  containers:
+  - image: nginx
+    name: ro-pod
+    resources: {}
+    securityContext:
+      readOnlyRootFilesystem: true
+    volumeMounts:
+    - name: etc-nginx-conf
+      mountPath: /etc/nginx/conf.d/
+    volumeMounts:
+    - name: var-cache-nginx
+      mountPath: /var/cache/nginx/
+    - name: var-run
+      mountPath: /var/run/
+  volumes:
+  - name: etc-nginx-conf
+    emptyDir: {}
+  - name: var-cache-nginx
+    emptyDir: {}
+  - name: var-run
+    emptyDir: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

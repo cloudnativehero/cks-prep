@@ -1,0 +1,11 @@
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: jane
+spec:
+  groups:
+  - system:authenticated
+  request: CSR_VAL
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+  - client auth
