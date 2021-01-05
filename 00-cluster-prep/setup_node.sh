@@ -4,7 +4,7 @@
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 ### setup terminal
-KUBE_VERSION=1.19.3
+KUBE_VERSION=1.19.6
 apt-get install -y bash-completion binutils apparmor-utils
 echo 'colorscheme ron' >> ~/.vimrc
 echo 'set tabstop=2' >> ~/.vimrc

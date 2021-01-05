@@ -1,7 +1,7 @@
 #!/bin/sh
 # Use this script to initialize master
 
-KUBE_VERSION=1.19.3
+KUBE_VERSION=1.19.6
 HOST_IP=`/sbin/ifconfig enp0s8 | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'  | cut -d' ' -f2`
 ### init k8s
 kubeadm init --apiserver-advertise-address=${HOST_IP} --kubernetes-version=${KUBE_VERSION} --ignore-preflight-errors=NumCPU --skip-token-print
