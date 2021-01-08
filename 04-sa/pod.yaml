@@ -10,7 +10,7 @@ spec:
   - image: nginx
     name: pod
     resources: {}
-  serviceAccount: podaccess
+  automountServiceAccountToken: true
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
