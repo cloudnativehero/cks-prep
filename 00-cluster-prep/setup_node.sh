@@ -25,11 +25,19 @@ apt-get install -y etcd-client vim build-essential
 ### install kube-bench
 curl -L https://github.com/aquasecurity/kube-bench/releases/download/v0.3.1/kube-bench_0.3.1_linux_amd64.deb -o /tmp/kube-bench_0.3.1_linux_amd64.deb
 sudo apt install /tmp/kube-bench_0.3.1_linux_amd64.deb -f
-rm -rf /tmp/kube-bench_0.3.1_linux_amd64.deb
+rm -rf /tmp/kube-bench*
 
 ### install falco
 curl -s https://falco.org/repo/falcosecurity-3672BA8F.asc | apt-key add -
 echo "deb https://dl.bintray.com/falcosecurity/deb stable main" | tee -a /etc/apt/sources.list.d/falcosecurity.list
+
+### install kubesec
+
+curl -L https://github.com/controlplaneio/kubesec/releases/download/v2.8.0/kubesec_linux_386.tar.gz -o /tmp/kubesec_linux_386.tar.gz
+tar -xvf /tmp/kubesec_linux_386.tar.gz -C /tmp/kubesec/
+cp /tmp/kubesec/kubesec /usr/bin/kubesec
+rm -rf /tmp/kubesec*
+
 apt-get update -y
 apt-get -y install linux-headers-$(uname -r)
 apt-get install -y falco
