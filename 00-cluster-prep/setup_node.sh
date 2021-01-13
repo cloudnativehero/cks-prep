@@ -40,8 +40,12 @@ apt-get -y install linux-headers-$(uname -r)
 apt-get install -y etcd-client vim build-essential bash-completion binutils apparmor-utils falco docker.io kubelet=${KUBE_VERSION}-00 kubeadm=${KUBE_VERSION}-00 kubectl=${KUBE_VERSION}-00 kubernetes-cni=0.8.7-00 trivy
 
 ### install kube-bench
-curl -L https://github.com/aquasecurity/kube-bench/releases/download/v0.3.1/kube-bench_0.3.1_linux_amd64.deb -o /tmp/kube-bench_0.3.1_linux_amd64.deb
-sudo apt install /tmp/kube-bench_0.3.1_linux_amd64.deb -f
+curl -L https://github.com/aquasecurity/kube-bench/releases/download/v0.3.1/kube-bench_0.3.1_linux_amd64.tar.gz -o /tmp/kube-bench_0.3.1_linux_amd64.tar.gz
+mkdir -p /tmp/kube-bench
+tar -xzf /tmp/kube-bench_0.3.1_linux_amd64.tar.gz -C /tmp/kube-bench
+cp /tmp/kube-bench/kube-bench /usr/local/bin/kube-bench
+mkdir -p /etc/kube-bench
+cp -Rf /tmp/kube-bench/cfg /etc/kube-bench/
 rm -rf /tmp/kube-bench*
 
 
@@ -67,6 +71,10 @@ systemctl restart docker
 
 # start docker on reboot
 systemctl enable docker
+
+#stop and disable falco
+systemctl disable falco
+systemctl stop falco
 
 docker info | grep -i "storage"
 docker info | grep -i "cgroup"
