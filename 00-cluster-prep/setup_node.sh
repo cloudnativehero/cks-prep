@@ -4,7 +4,7 @@
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 ### setup terminal
-KUBE_VERSION=1.20.4
+KUBE_VERSION=1.21.0
 ### Setting up background to operate Kubernetes
 echo 'colorscheme ron' >> ~/.vimrc
 echo 'set tabstop=2' >> ~/.vimrc
