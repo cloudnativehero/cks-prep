@@ -4,7 +4,7 @@
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 ### setup terminal
-KUBE_VERSION=1.21.0
+KUBE_VERSION=1.21.1
 ### Setting up background to operate Kubernetes
 echo 'colorscheme ron' >> ~/.vimrc
 echo 'set tabstop=2' >> ~/.vimrc
@@ -20,7 +20,7 @@ apt-get update
 apt-get install wget apt-transport-https gnupg lsb-release -y
 
 curl -s https://falco.org/repo/falcosecurity-3672BA8F.asc | apt-key add -
-echo "deb https://dl.bintray.com/falcosecurity/deb stable main" > /etc/apt/sources.list.d/falcosecurity.list
+echo "deb https://download.falco.org/packages/deb stable main" > /etc/apt/sources.list.d/falcosecurity.list
 
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 cat <<EOF > /etc/apt/sources.list.d/kubernetes.list
