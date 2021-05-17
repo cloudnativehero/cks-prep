@@ -4,7 +4,7 @@
 # Source: http://kubernetes.io/docs/getting-started-guides/kubeadm/
 
 ### setup terminal
-KUBE_VERSION=1.21.0
+KUBE_VERSION=1.21.1
 
 ### install k8s and docker
 apt-get remove -y kubelet kubernetes-cni
