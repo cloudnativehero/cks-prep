@@ -6,6 +6,10 @@
 ### setup terminal
 KUBE_VERSION=1.21.1
 
+#Turn Off Swap
+sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+swapoff -a
+
 ### install k8s and docker
 apt-get remove -y kubelet kubernetes-cni
 apt-get autoremove -y
