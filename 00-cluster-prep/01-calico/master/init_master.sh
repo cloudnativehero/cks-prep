@@ -13,9 +13,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
-kubectl create -f https://docs.projectcalico.org/manifests/tigera-operator.yaml
-kubectl create -f https://docs.projectcalico.org/manifests/custom-resources.yaml
-
+kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
 echo
 echo "### COMMAND TO ADD A WORKER NODE ###"
